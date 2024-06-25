@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Autores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Campo de pesquisa com FormControl -->
+  <ion-searchbar [formControl]="termoBuscaControl" (ionInput)="buscarAutores()"></ion-searchbar>
+
+  <!-- Lista de autores -->
+  <ion-list *ngIf="autores.length > 0; else listaVazia">
+    <ion-item *ngFor="let autor of autores" class="autor-item" lines="none">
+      <ion-label>{{ autor.nome }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button color="success" [routerLink]="['/autores/edicao', autor.id]" fill="clear">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="confirmarExclusao(autor)" fill="clear">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensagem para lista vazia -->
+  <ng-template #listaVazia>
+    <ion-text class="ion-text-center">
+      <p>Nenhum autor encontrado.</p>
+    </ion-text>
+  </ng-template>
+
+  <!-- Botão de adicionar autor -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/autores/cadastro']" color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

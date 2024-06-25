@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de Usuários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="usuariosForm" (ngSubmit)="salvar()">
+
+    <!-- Nome -->
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="usuariosForm.get('nome')?.invalid && (usuariosForm.get('nome')?.dirty || usuariosForm.get('nome')?.touched)">
+      <ng-container *ngIf="usuariosForm.get('nome')?.errors?.['required']">
+        Campo obrigatório
+      </ng-container>
+      <ng-container *ngIf="usuariosForm.get('nome')?.errors?.['minlength']">
+        O nome deve ter pelo menos 3 caracteres
+      </ng-container>
+      <ng-container *ngIf="usuariosForm.get('nome')?.errors?.['maxlength']">
+        O nome deve ter no máximo 100 caracteres
+      </ng-container>
+    </ion-note>
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="usuariosForm.get('email')?.invalid && (usuariosForm.get('email')?.dirty || usuariosForm.get('email')?.touched)">
+      <ng-container *ngIf="usuariosForm.get('email')?.errors?.['required']">
+        Campo obrigatório
+      </ng-container>
+      <ng-container *ngIf="usuariosForm.get('email')?.errors?.['email']">
+        Email inválido
+      </ng-container>
+      <ng-container *ngIf="usuariosForm.get('email')?.errors?.['emailExiste']">
+        Este email já está cadastrado
+      </ng-container>
+    </ion-note>
+
+    <!-- Data de Nascimento -->
+    <ion-item>
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input formControlName="dataNascimento" type="date"></ion-input>
+    </ion-item>
+
+    <!-- Gênero -->
+    <ion-item>
+      <ion-label>Gênero</ion-label>
+      <ion-select formControlName="genero">
+        <ion-select-option value="M">Masculino</ion-select-option>
+        <ion-select-option value="F">Feminino</ion-select-option>
+        <ion-select-option value="O">Outro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- País -->
+    <ion-item>
+      <ion-label position="floating">País</ion-label>
+      <ion-select formControlName="pais">
+        <ion-select-option value="Brasil">Brasil</ion-select-option>
+        <ion-select-option value="Argentina">Argentina</ion-select-option>
+        <ion-select-option value="Estados Unidos">Estados Unidos</ion-select-option>
+        <ion-select-option value="Canadá">Canadá</ion-select-option>
+        <ion-select-option value="Paraguai">Paraguai</ion-select-option>
+        <ion-select-option value="Uruguai">Uruguai</ion-select-option>
+        <ion-select-option value="Itália">Itália</ion-select-option>
+        <ion-select-option value="Portugal">Portugal</ion-select-option>
+        <ion-select-option value="Espanha">Espanha</ion-select-option>
+        <ion-select-option value="Alemanha">Alemanha</ion-select-option>
+        <ion-select-option value="Rússia">Rússia</ion-select-option>
+        <ion-select-option value="Coreia do Sul">Coreia do Sul</ion-select-option>
+        <ion-select-option value="Japão">Japão</ion-select-option>
+        <ion-select-option value="China">China</ion-select-option>
+        <ion-select-option value="Austrália">Austrália</ion-select-option>
+        <ion-select-option value="México">México</ion-select-option>
+        <ion-select-option value="África do Sul">África do Sul</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-note color="danger" *ngIf="usuariosForm.get('pais')?.invalid && (usuariosForm.get('pais')?.dirty || usuariosForm.get('pais')?.touched)">
+      <ng-container *ngIf="usuariosForm.get('pais')?.errors?.['required']">
+        Campo obrigatório
+      </ng-container>
+    </ion-note>
+
+    <!-- Botões de Ação -->
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" type="button" color="medium" routerLink="/usuarios">
+          <ion-icon name="arrow-back"></ion-icon>
+          Voltar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" type="submit" [disabled]="usuariosForm.invalid">
+          Salvar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

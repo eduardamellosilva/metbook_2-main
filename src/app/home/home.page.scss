@@ -1,0 +1,52 @@
+carossel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px; /* Ajuste conforme necessário */
+}
+
+ion-icon {
+  color: #ff008c;
+}
+
+.carossel {
+  display: flex;
+  overflow-x: auto; /* Permite rolagem horizontal */
+  scroll-snap-type: x mandatory; /* Define o tipo de scroll snap horizontal */
+}
+
+.carossel-track {
+  display: flex;
+  scroll-snap-align: start; /* Alinha as imagens ao início da área de rolagem */
+}
+
+.carossel-item {
+  flex: 0 0 auto;
+  padding: 0 10px;
+  scroll-snap-align: start; /* Alinha as imagens ao início da área de rolagem */
+}
+
+.carossel-item img {
+  max-width: 80%;
+  height: 60%;
+  display: block;
+}
+
+.carossel-prev, .carossel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.carossel-prev {
+  left: 10px;
+}
+
+.carossel-next {
+ right: 10px;
+}

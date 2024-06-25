@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>MetBook</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+
+           <h1> Bem-vindo ao MetBook<br> </h1>
+
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-subtitle>
+
+        <h3> Gerencie sua biblioteca utilizando o melhor app do mercado !<br><br></h3>
+
+          <h2>"Em nossas escolhas, encontram-se nosso destino."</h2>
+          
+        <br><br>
+      </ion-card-subtitle>
+    </ion-card><br>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header [routerLink]="['/livros']">
+            <ion-card-title>
+              <ion-icon name="book" class="ion-float-left ion-margin-end"></ion-icon>
+              Livros
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header [routerLink]="['/autores']">
+            <ion-card-title>
+              <ion-icon name="people-circle" class="ion-float-left ion-margin-end"></ion-icon>
+                Autores
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-card-header [routerLink]="['/usuarios']">
+            <ion-card-title>
+              <ion-icon name="person-circle" class="ion-float-left ion-margin-end"></ion-icon>
+                Usuários
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row><br>
+
+    <!--CARROSSEL-->
+    <div class="carossel-container">
+      <div class="carossel">
+        <div class="carossel-track">
+          <div class="carossel-item">
+            <img src="https://i0.wp.com/retipatia.com/wp-content/uploads/2019/02/01-scaled.jpg?fit=2560%2C2560&ssl=1.jpg" alt="Imagem 1">
+          </div>
+          <div class="carossel-item">
+            <img src="https://i.pinimg.com/originals/48/71/c6/4871c693d7698c9ab56343c41fc401db.jpg" alt="Imagem 2">
+          </div>
+          <div class="carossel-item">
+            <img src="https://i.pinimg.com/originals/d7/36/03/d736033b123377291bc35498011cafe5.jpg" alt="Imagem 3">
+          </div>
+          <div class="carossel-item">
+            <img src="https://i.pinimg.com/originals/f2/4c/45/f24c452df1171d4832d6290b9ea74f0e.jpg" alt="Imagem 4">
+          </div>
+          <div class="carossel-item">
+            <img src="https://i.pinimg.com/originals/9d/22/2f/9d222fa288b828e02fa66931fe2a2de3.jpg" alt="Imagem 5">
+          </div>
+          <div class="carossel-item">
+            <img src="https://i.pinimg.com/564x/cc/88/8d/cc888dfcf1bf6f290df315bf7e9f2eba.jpg" alt="Imagem 6">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ion-card color="light" class="ion-fixed ion-padding-bottom">
+      <ion-card-content>
+        <h3><b>© MetBook 2024 - Todos os direitos reservados</b></h3><br>
+        <h5>Projeto desenvolvido para a matéria de Tópicos Especiais II - 7° fase - Esucri</h5><br>
+        <h6><b>Dupla:</b> Eduarda Mello da Silva e Sabrina Comin Nart</h6>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-content>

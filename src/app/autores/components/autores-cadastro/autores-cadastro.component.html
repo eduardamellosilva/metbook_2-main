@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ isEditMode ? 'Editar Autor' : 'Novo Autor' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="autoresForm" (ngSubmit)="salvar()">
+
+    <!-- Campo 'nome' -->
+    <ion-item lines="full">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="autoresForm.get('nome')?.invalid && (autoresForm.get('nome')?.dirty || autoresForm.get('nome')?.touched)">
+      <ng-container *ngIf="autoresForm.get('nome')?.errors?.['required']">O nome deve ser informado</ng-container>
+      <ng-container *ngIf="autoresForm.get('nome')?.errors?.['minlength']">O nome deve ter no mínimo {{ autoresForm.get('nome')?.errors?.['minlength'].requiredLength }} caracteres</ng-container>
+      <ng-container *ngIf="autoresForm.get('nome')?.errors?.['maxlength']">O nome deve ter no máximo {{ autoresForm.get('nome')?.errors?.['maxlength'].requiredLength }} caracteres</ng-container>
+    </ion-text>
+
+    <!-- Campo 'dataNascimento' -->
+    <ion-item lines="full">
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input formControlName="dataNascimento" type="date"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="autoresForm.get('dataNascimento')?.invalid && (autoresForm.get('dataNascimento')?.dirty || autoresForm.get('dataNascimento')?.touched)">
+      <ng-container *ngIf="autoresForm.get('dataNascimento')?.errors?.['required']">A data de nascimento é obrigatória - Autor deve ser maior de idade</ng-container>
+      <ng-container *ngIf="autoresForm.get('dataNascimento')?.errors?.['maiorIdade']">O autor deve ser maior de idade</ng-container>
+    </ion-text>
+
+    <!-- Campo 'genero' -->
+    <ion-list lines="full">
+      <ion-radio-group formControlName="genero">
+        <ion-list-header>
+          <ion-label>Gênero</ion-label>
+        </ion-list-header>
+        <ion-item lines="none">
+          <ion-radio slot="start" [value]="generoEnum.FEMININO">Feminino</ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-radio slot="start" [value]="generoEnum.MASCULINO">Masculino</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-text color="danger" *ngIf="autoresForm.get('genero')?.invalid && (autoresForm.get('genero')?.dirty || autoresForm.get('genero')?.touched)">
+        O campo gênero é obrigatório
+      </ion-text>
+    </ion-list>
+
+    <!-- Campo 'nacionalidade' -->
+    <ion-item lines="full">
+      <ion-label position="floating">Nacionalidade</ion-label>
+      <ion-select formControlName="nacionalidade" interface="action-sheet">
+        <ion-select-option value="Brasileiro">Brasileiro</ion-select-option>
+        <ion-select-option value="Americano">Americano</ion-select-option>
+        <ion-select-option value="Canadense">Canadense</ion-select-option>
+        <ion-select-option value="Australiano">Australiano</ion-select-option>
+        <ion-select-option value="Coreano">Coreano</ion-select-option>
+        <ion-select-option value="Italiano">Italiano</ion-select-option>
+        <ion-select-option value="Outro">Outro</ion-select-option>
+      </ion-select>
+      <ion-text color="danger" *ngIf="autoresForm.get('nacionalidade')?.invalid && (autoresForm.get('nacionalidade')?.dirty || autoresForm.get('nacionalidade')?.touched)">
+        <ng-container *ngIf="autoresForm.get('nacionalidade')?.errors?.['required']">O campo nacionalidade é obrigatório</ng-container>
+      </ion-text>
+    </ion-item>
+
+    <!-- Campo 'linkInstagram' -->
+    <ion-item lines="full">
+      <ion-label position="floating">Link do Instagram</ion-label>
+      <ion-input formControlName="linkInstagram" type="text"></ion-input>
+      <ion-text color="danger" *ngIf="autoresForm.get('linkInstagram')?.invalid && (autoresForm.get('linkInstagram')?.dirty || autoresForm.get('linkInstagram')?.touched)">
+        <ng-container *ngIf="autoresForm.get('linkInstagram')?.errors?.['pattern']">
+          O link do Instagram deve estar no formato correto.
+        </ng-container>
+        <ng-container *ngIf="autoresForm.get('linkInstagram')?.errors?.['required']">
+          O campo link do Instagram é obrigatório.
+        </ng-container>
+      </ion-text>
+    </ion-item>
+
+    <!-- Campo 'biografia' -->
+    <ion-item lines="full">
+      <ion-label position="floating">Biografia</ion-label>
+      <ion-textarea formControlName="biografia"></ion-textarea>
+      <ion-text color="danger" *ngIf="autoresForm.get('biografia')?.invalid && (autoresForm.get('biografia')?.dirty || autoresForm.get('biografia')?.touched)">
+        <ng-container *ngIf="autoresForm.get('biografia')?.errors?.['required']">O campo de biografia é obrigatório!</ng-container>
+        <ng-container *ngIf="autoresForm.get('biografia')?.errors?.['maxlength']">A biografia do autor deve ter até 500 caracteres.</ng-container>
+      </ion-text>
+    </ion-item>
+
+    <!-- Botão de envio -->
+    <ion-row class="ion-margin-top">
+      <ion-col size="6">
+        <ion-button expand="block" type="button" color="medium" routerLink="/autores" fill="clear">
+          <ion-icon name="arrow-back"></ion-icon>
+          Voltar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" type="submit" [disabled]="!autoresForm.valid" color="success">
+          <ion-icon name="save"></ion-icon>
+          {{ isEditMode ? 'Salvar Alterações' : 'Salvar Novo Autor' }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

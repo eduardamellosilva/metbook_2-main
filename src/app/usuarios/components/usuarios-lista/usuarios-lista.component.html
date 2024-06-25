@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Listagem de Usuários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Campo de pesquisa -->
+  <ion-searchbar [(ngModel)]="termoBusca" (ionInput)="buscarUsuariosPorNome()"></ion-searchbar>
+
+  <!-- Lista de usuários -->
+  <ion-list lines="none">
+    <ion-item *ngFor="let usuario of usuarios" class="usuario-item">
+      <ion-label class="ion-text-wrap">
+        <h2>{{ usuario.nome }}</h2>
+        <p>{{ usuario.email }}</p>
+
+        <!-- Botões de ação -->
+        <div class="botoes">
+          <ion-button [routerLink]="['/usuarios', 'edicao', usuario.id]" color="success">
+            <ion-icon slot="start" name="create"></ion-icon>
+            Editar
+          </ion-button>
+          <ion-button (click)="excluir(usuario)" color="danger">
+            <ion-icon slot="start" name="trash"></ion-icon>
+            Excluir
+          </ion-button>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Mensagem de lista vazia -->
+  <ion-text *ngIf="usuarios.length === 0 && !loadingUsuarios" class="ion-text-center">
+    <p>Nenhum usuário encontrado.</p>
+  </ion-text>
+
+  <!-- Spinner de carregamento -->
+  <ion-spinner *ngIf="loadingUsuarios" color="primary"></ion-spinner>
+
+  <!-- Botão de adicionar usuário -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/usuarios', 'cadastro']" color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<!-- Toast para exibir erros -->
+<ion-toast *ngIf="errorUsuarios" message="Erro ao carregar usuários" duration="3000" position="top"></ion-toast>

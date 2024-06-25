@@ -1,0 +1,149 @@
+{
+  "Usuarios": [
+    {
+      "nome": "Ana Cláudia",
+      "email": "ana@example.com",
+      "dataNascimento": "1977/06/03",
+      "genero": "FEMININO",
+      "pais": "Suíça",
+      "id": 2
+    },
+    {
+      "nome": "Max leandro",
+      "email": "max@example.com",
+      "dataNascimento": "1971/06/03",
+      "genero": "MASCULINO",
+      "pais": "Suíça",
+      "id": 3
+    },
+    {
+      "nome": "Sabrina",
+      "email": "sabrina@teste.com",
+      "dataNascimento": "2003-02-14",
+      "genero": "F",
+      "pais": "Brasil",
+      "id": 4
+    },
+    {
+      "nome": "Eduarda Mello da Silva",
+      "email": "duu-daa1@hotmail.com",
+      "dataNascimento": "2024-06-03",
+      "genero": "F",
+      "pais": "Brasil",
+      "id": 5
+    }
+  ],
+  "autores": [
+    {
+      "nome": "Martin Fowler",
+      "dataNascimento": "1976-02-25T00:00:00",
+      "genero": "M",
+      "id": 1
+    },
+    {
+      "nome": "David Cockford",
+      "dataNascimento": "2000-04-28T20:30:34.363-03:00",
+      "genero": "M",
+      "id": 2
+    },
+    {
+      "nome": "Stephanie Garber",
+      "dataNascimento": "1980-06-10",
+      "genero": "F",
+      "nacionalidade": "AMERICANO",
+      "linkInstagram": "https://www.instagram.com/stephanie_garber/",
+      "biografia": "Stephanie Garber é uma autora americana de ficção para jovens adultos conhecida pela série Caraval. Ela já foi a autora best-seller número 1 do New York Times e do Sunday Times com a série Caraval, que foi traduzida em mais de 25 idiomas.",
+      "id": 3
+    },
+    {
+      "nome": "Eudarda",
+      "dataNascimento": "2024-06-07",
+      "genero": "F",
+      "nacionalidade": "CANADENSE",
+      "linkInstagram": "Teste",
+      "biografia": "teste",
+      "id": 4
+    }
+  ],
+  "livros": [
+    {
+      "titulo": "Era uma vez um coração partido",
+      "subtitulo": "",
+      "numeroPaginas": 352,
+      "isbn": "858235648X",
+      "editora": "Gutenberg",
+      "anoLancamento": 2022,
+      "logoUrl": "https://m.media-amazon.com/images/I/81Dy0r1HLIL._SL1500_.jpg",
+      "preco": 48,
+      "autores": [
+        {
+          "nome": "Stephanie Garber",
+          "dataNascimento": "1980-06-10",
+          "genero": "F",
+          "nacionalidade": "AMERICANO",
+          "linkInstagram": "https://www.instagram.com/stephanie_garber/",
+          "biografia": "Stephanie Garber é uma autora americana de ficção para jovens adultos conhecida pela série Caraval. Ela já foi a autora best-seller número 1 do New York Times e do Sunday Times com a série Caraval, que foi traduzida em mais de 25 idiomas.",
+          "id": 3
+        }
+      ],
+      "id": 3
+    },
+    {
+      "titulo": "aaa",
+      "subtitulo": "",
+      "numeroPaginas": 343,
+      "isbn": "2562626262",
+      "editora": "dfdfd",
+      "anoLancamento": 2000,
+      "logoUrl": "http://dfdfdf.com",
+      "preco": 10,
+      "autores": [
+        {
+          "nome": "Martin Fowler",
+          "dataNascimento": "1976-02-25T00:00:00",
+          "genero": "M",
+          "id": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "titulo": "CARAVAL",
+      "subtitulo": "",
+      "numeroPaginas": 376,
+      "isbn": "5485585484",
+      "editora": "Gutemberg",
+      "anoLancamento": 2020,
+      "logoUrl": "https://m.media-amazon.com/images/I/81lfmXTRWQL._SL1500_.jpg",
+      "preco": 132,
+      "autores": [
+        {
+          "nome": "David Cockford",
+          "dataNascimento": "2000-04-28T20:30:34.363-03:00",
+          "genero": "M",
+          "id": 2
+        }
+      ],
+      "id": 5
+    },
+    {
+      "titulo": "aaaa",
+      "subtitulo": "aa",
+      "numeroPaginas": 2323,
+      "isbn": "1234566789",
+      "editora": "sdasdasd",
+      "anoLancamento": 2000,
+      "logoUrl": "http://teste.com",
+      "preco": 1022,
+      "autores": [
+        {
+          "nome": "Martin Fowler",
+          "dataNascimento": "1976-02-25T00:00:00",
+          "genero": "M",
+          "id": 1
+        }
+      ],
+      "id": 6
+    }
+  ]
+}

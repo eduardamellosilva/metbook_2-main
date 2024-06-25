@@ -1,0 +1,43 @@
+.livro-item {
+    margin-bottom: 16px;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.livro-item ion-thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+}
+
+.livro-item ion-label {
+    width: calc(100% - 112px);
+}
+
+.autores {
+    margin-bottom: 8px;
+}
+
+.detalhes {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.botoes ion-button {
+    margin-top: 8px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+}
+
+ion-fab-button {
+    --background: #3880ff;
+    --box-shadow: none;
+}
+
+ion-fab-button ion-icon {
+    color: white;
+}

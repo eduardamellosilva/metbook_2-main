@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Listagem de Livros</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <!-- Campo de pesquisa -->
+    <ion-searchbar [(ngModel)]="termoBusca" (ionInput)="buscarLivrosPorTitulo()"></ion-searchbar>
+
+    <ion-list lines="none">
+        <ion-item *ngFor="let livro of livros" class="livro-item">
+            <!-- Thumbnail do livro -->
+            <ion-thumbnail slot="start">
+                <img src="caminho/para/sua/imagem.jpg" alt="Capa do Livro">
+            </ion-thumbnail>
+
+            <ion-label class="ion-text-wrap">
+                <!-- Título e subtítulo -->
+                <h2>{{ livro.titulo }}</h2>
+                <h3>{{ livro.subtitulo }}</h3>
+
+                <!-- Autores -->
+                <div class="autores">
+                    <strong *ngIf="livro.autores.length === 1">Autor: </strong>
+                    <strong *ngIf="livro.autores.length > 1">Autores: </strong>
+                    <ng-container *ngFor="let autor of livro.autores; let isLast=last">
+                        <span>{{ autor.nome }}</span>
+                        <span *ngIf="!isLast">, </span>
+                    </ng-container>
+                </div>
+
+                <!-- Detalhes do livro -->
+                <div class="detalhes">
+                    <p><strong>ISBN:</strong> {{ livro.isbn }}</p>
+                    <p><strong>Páginas:</strong> {{ livro.numeroPaginas }}</p>
+                    <p><strong>Editora:</strong> {{ livro.editora }}</p>
+                    <p><strong>Ano:</strong> {{ livro.anoLancamento }}</p>
+                </div>
+
+                <!-- Botões de ação -->
+                <div class="botoes">
+                    <ion-button [routerLink]="['/livros/edicao', livro.id]" color="success" fill="clear">
+                        <ion-icon slot="start" name="create-outline"></ion-icon>
+                        Editar
+                    </ion-button>
+                    <ion-button (click)="excluir(livro)" color="danger" fill="clear">
+                        <ion-icon slot="start" name="trash-outline"></ion-icon>
+                        Excluir
+                    </ion-button>
+                </div>
+            </ion-label>
+
+            <!-- Preço do livro -->
+            <ion-text color="danger">
+                <h2>{{ livro.preco | currency }}</h2>
+            </ion-text>
+        </ion-item>
+    </ion-list>
+
+    <!-- Botão de adicionar livro -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [routerLink]="['/livros', 'novo']" color="primary">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>
